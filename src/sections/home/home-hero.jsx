@@ -175,7 +175,7 @@ export default function HomeHero() {
         },
       }}
     >
-      <m.div variants={varFade().in}>
+      {/* <m.div variants={varFade().in}>
         <Typography
           variant="h2"
           sx={{
@@ -185,7 +185,7 @@ export default function HomeHero() {
           Start a <br />
           New Project with
         </Typography>
-      </m.div>
+      </m.div> */}
 
       <m.div variants={varFade().in}>
         <StyledTextGradient
@@ -197,7 +197,7 @@ export default function HomeHero() {
             repeat: Infinity,
           }}
         >
-          Minimal
+          Wedding Organizer
         </StyledTextGradient>
       </m.div>
 
@@ -208,7 +208,7 @@ export default function HomeHero() {
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().in}>
+      {/* <m.div variants={varFade().in}>
         <Stack
           spacing={0.75}
           direction="row"
@@ -224,10 +224,10 @@ export default function HomeHero() {
             (99+ reviews)
           </Typography>
         </Stack>
-      </m.div>
+      </m.div> */}
 
       <m.div variants={varFade().in}>
-        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5 }}>
+        <Stack spacing={1.5} direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5, mt: 5 }}>
           <Stack alignItems="center" spacing={2}>
             <Button
               component={RouterLink}
@@ -240,7 +240,7 @@ export default function HomeHero() {
               Live Preview
             </Button>
 
-            <Link
+            {/* <Link
               color="inherit"
               variant="caption"
               target="_blank"
@@ -254,10 +254,10 @@ export default function HomeHero() {
             >
               <Iconify icon="eva:external-link-fill" width={16} sx={{ mr: 0.5 }} />
               Get Free Version
-            </Link>
+            </Link> */}
           </Stack>
 
-          <Button
+          {/* <Button
             color="inherit"
             size="large"
             variant="outlined"
@@ -268,11 +268,11 @@ export default function HomeHero() {
             sx={{ borderColor: 'text.primary' }}
           >
             Design Preview
-          </Button>
+          </Button> */}
         </Stack>
       </m.div>
 
-      <Stack spacing={3} sx={{ textAlign: 'center' }}>
+      {/* <Stack spacing={3} sx={{ textAlign: 'center' }}>
         <m.div variants={varFade().in}>
           <Typography variant="overline" sx={{ opacity: 0.4 }}>
             Available For
@@ -290,7 +290,7 @@ export default function HomeHero() {
             </m.div>
           ))}
         </Stack>
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 

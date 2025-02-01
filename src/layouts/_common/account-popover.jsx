@@ -23,18 +23,18 @@ import CustomPopover, { usePopover } from 'src/components/custom-popover';
 // ----------------------------------------------------------------------
 
 const OPTIONS = [
-  {
-    label: 'Home',
-    linkTo: '/',
-  },
+  // {
+  //   label: 'Home',
+  //   linkTo: '/',
+  // },
   {
     label: 'Profile',
-    linkTo: paths.dashboard.user.profile,
-  },
-  {
-    label: 'Settings',
     linkTo: paths.dashboard.user.account,
   },
+  // {
+  //   label: 'Settings',
+  //   linkTo: paths.dashboard.user.account,
+  // },
 ];
 
 // ----------------------------------------------------------------------

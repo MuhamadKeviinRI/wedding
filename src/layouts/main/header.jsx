@@ -59,7 +59,7 @@ export default function Header() {
         }}
       >
         <Container sx={{ height: 1, display: 'flex', alignItems: 'center' }}>
-          <Badge
+          {/* <Badge
             sx={{
               [`& .${badgeClasses.badge}`]: {
                 top: 8,
@@ -81,16 +81,16 @@ export default function Header() {
             }
           >
             <Logo />
-          </Badge>
+          </Badge> */}
 
           <Box sx={{ flexGrow: 1 }} />
 
           {mdUp && <NavDesktop offsetTop={offsetTop} data={navConfig} />}
 
           <Stack alignItems="center" direction={{ xs: 'row', md: 'row-reverse' }}>
-            <Button variant="contained" target="_blank" rel="noopener" href={paths.minimalUI}>
+            {/* <Button variant="contained" target="_blank" rel="noopener" href={paths.minimalUI}>
               Purchase Now
-            </Button>
+            </Button> */}
 
             {mdUp && <LoginButton />}
 
