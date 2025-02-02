@@ -29,13 +29,7 @@ const LINKS = [
       { name: 'FAQs', href: paths.faqs },
     ],
   },
-  {
-    headline: 'Legal',
-    children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-    ],
-  },
+
   {
     headline: 'Contact',
     children: [{ name: 'tes@gmail.com', href: '#' }],
@@ -88,7 +82,7 @@ export default function Footer() {
           textAlign: { xs: 'center', md: 'unset' },
         }}
       >
-        <Logo sx={{ mb: 3 }} />
+        <img alt='tes' src='/assets/images/home/logo.png' width={80}/>
 
         <Grid
           container
@@ -105,8 +99,7 @@ export default function Footer() {
                 mx: { xs: 'auto', md: 'unset' },
               }}
             >
-              The starting point for your next project with Minimal UI Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
+            Percayakan Pernikahan Impian Anda pada Kami – Elegan, Berkesan, dan Tak Terlupakan!
             </Typography>
 
             <Stack
@@ -132,8 +125,8 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid xs={12} md={6}>
-            <Stack spacing={5} direction={{ xs: 'column', md: 'row' }}>
+          <Grid xs={12} md={4}>
+            <Stack spacing={2} direction={{ xs: 'column', md: 'row' }}>
               {LINKS.map((list) => (
                 <Stack
                   key={list.headline}
@@ -162,9 +155,9 @@ export default function Footer() {
           </Grid>
         </Grid>
 
-        <Typography variant="body2" sx={{ mt: 10 }}>
+        {/* <Typography variant="body2" sx={{ mt: 10 }}>
           © 2025. Semua hak dilindungi undang-undang
-        </Typography>
+        </Typography> */}
       </Container>
     </Box>
   );

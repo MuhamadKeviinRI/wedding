@@ -203,8 +203,7 @@ export default function HomeHero() {
 
       <m.div variants={varFade().in}>
         <Typography variant="body2" sx={{ textAlign: 'center' }}>
-          The starting point for your next project is based on MUI.Easy customization Helps you
-          build apps faster and better.
+        Percayakan Pernikahan Impian Anda pada Kami – Elegan, Berkesan, dan Tak Terlupakan!
         </Typography>
       </m.div>
 
@@ -237,7 +236,7 @@ export default function HomeHero() {
               variant="contained"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
             >
-              Live Preview
+              Login
             </Button>
 
             {/* <Link

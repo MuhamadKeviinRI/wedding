@@ -16,7 +16,7 @@ import { bgBlur } from 'src/theme/css';
 // routes
 import { paths } from 'src/routes/paths';
 // components
-import Logo from 'src/components/logo';
+// import Logo from '../../../public/assets/images/home/logo.png';
 import Label from 'src/components/label';
 //
 import { HEADER } from '../config-layout';
@@ -80,9 +80,22 @@ export default function Header() {
               </Link>
             }
           >
-            <Logo />
+              
+            
           </Badge> */}
+          <img alt='tes' src='/assets/images/home/logo.png' width={80}/>
+          {/* <Box
+          component={m.img}
+         
+          src={
+           
+             
+               /assets/images/home/hero/Logo.png
+          }
+          sx={{ position: 'absolute' }}
+/> */}
 
+         
           <Box sx={{ flexGrow: 1 }} />
 
           {mdUp && <NavDesktop offsetTop={offsetTop} data={navConfig} />}
