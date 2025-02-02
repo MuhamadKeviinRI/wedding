@@ -65,7 +65,7 @@ export default function HomeForDesigner() {
   const renderImg = (
     <Box
       component={m.img}
-      src="/assets/images/home/for_designer.webp"
+      src="/assets/images/home/wedding.jpeg"
       variants={varFade().in}
       sx={{
         height: 1,

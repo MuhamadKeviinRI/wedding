@@ -13,20 +13,22 @@ import { MotionViewport, varFade } from 'src/components/animate';
 
 const CARDS = [
   {
-    icon: ' /assets/icons/home/ic_make_brand.svg',
+    icon: '/assets/icons/home/ic_make_brand.png',
     title: 'Konsultasi',
-    description: 'Consistent design makes it easy to brand your own.',
+    description:
+      'Bergabunglah dengan kami untuk konsultasi pribadi mengenai segala hal yang berhubungan dengan pernikahan. Kami akan memberikan solusi terbaik sesuai dengan kebutuhan Anda.',
   },
   {
-    icon: ' /assets/icons/home/ic_design.svg',
+    icon: '/assets/icons/home/ic_design.svg',
     title: 'Paket Pernikahan',
     description:
-      'The kit is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.',
+      'Paket pernikahan kami dirancang untuk memenuhi segala kebutuhan acara Anda, dari dekorasi hingga kebutuhan acara, dengan berbagai pilihan yang dapat disesuaikan.',
   },
   {
-    icon: ' /assets/icons/home/ic_development.svg',
+    icon: '/assets/icons/home/ic_development.svg',
     title: 'Booking',
-    description: 'Easy to customize and extend, saving you time and money.',
+    description:
+      'Dengan sistem pemesanan yang mudah, Anda dapat mengatur tanggal dan detail acara pernikahan Anda dengan cepat dan efisien tanpa repot.',
   },
 ];
 
@@ -47,14 +49,8 @@ export default function HomeMinimal() {
           mb: { xs: 5, md: 10 },
         }}
       >
-        {/* <m.div variants={varFade().inUp}>
-          <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-            Minimal UI
-          </Typography>
-        </m.div> */}
-
         <m.div variants={varFade().inDown}>
-          <Typography variant="h2">Pelayanan</Typography>
+          <Typography variant="h2">Layanan</Typography>
         </m.div>
       </Stack>
 

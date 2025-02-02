@@ -15,13 +15,31 @@ import Stack from '@mui/material/Stack';
 import { useResponsive } from 'src/hooks/use-responsive';
 // routes
 import { paths } from 'src/routes/paths';
-// _mock
-import { _homePlans } from 'src/_mock';
 // components
 import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
-// ----------------------------------------------------------------------
+// Mock data for wedding packages
+const weddingPackages = [
+  {
+    license: 'Standard',
+    commons: ['Paket dekorasi sederhana', 'Paket catering untuk 100 orang'],
+    options: ['Dekorasi bunga', 'Foto dokumentasi', 'Kue pengantin'],
+    icons: ['eva:camera-fill', 'eva:heart-fill', 'eva:shopping-bag-fill'],
+  },
+  {
+    license: 'Premium',
+    commons: ['Paket dekorasi mewah', 'Paket catering untuk 200 orang'],
+    options: ['Dekorasi bunga', 'Foto dokumentasi profesional', 'Kue pengantin eksklusif'],
+    icons: ['eva:camera-fill', 'eva:star-fill', 'eva:shopping-cart-fill'],
+  },
+  {
+    license: 'Luxury',
+    commons: ['Paket dekorasi eksklusif', 'Paket catering untuk 300 orang'],
+    options: ['Dekorasi bunga premium', 'Foto dokumentasi HD', 'Kue pengantin super mewah'],
+    icons: ['eva:camera-fill', 'eva:award-fill', 'eva:gift-fill'],
+  },
+];
 
 export default function HomePricing() {
   const mdUp = useResponsive('up', 'md');
@@ -36,19 +54,19 @@ export default function HomePricing() {
     <Stack spacing={3} sx={{ mb: 10, textAlign: 'center' }}>
       <m.div variants={varFade().inUp}>
         <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
-          pricing plans
+          Paket Harga Pernikahan
         </Typography>
       </m.div>
 
       <m.div variants={varFade().inDown}>
         <Typography variant="h2">
-          The right plan for <br /> your business
+          Pilih Paket Pernikahan yang Tepat <br /> untuk Anda
         </Typography>
       </m.div>
 
       <m.div variants={varFade().inDown}>
         <Typography sx={{ color: 'text.secondary' }}>
-          Choose the perfect plan for your needs. Always flexible to grow
+          Pilih paket yang sesuai dengan kebutuhan Anda. Selalu fleksibel untuk berkembang.
         </Typography>
       </m.div>
     </Stack>
@@ -65,7 +83,7 @@ export default function HomePricing() {
             border: (theme) => `dashed 1px ${theme.palette.divider}`,
           }}
         >
-          {_homePlans.map((plan) => (
+          {weddingPackages.map((plan) => (
             <m.div key={plan.license} variants={varFade().in}>
               <PlanCard key={plan.license} plan={plan} />
             </m.div>
@@ -75,7 +93,7 @@ export default function HomePricing() {
         <>
           <Stack alignItems="center" sx={{ mb: 5 }}>
             <Tabs value={currentTab} onChange={handleChangeTab}>
-              {_homePlans.map((tab) => (
+              {weddingPackages.map((tab) => (
                 <Tab key={tab.license} value={tab.license} label={tab.license} />
               ))}
             </Tabs>
@@ -87,7 +105,7 @@ export default function HomePricing() {
               border: (theme) => `dashed 1px ${theme.palette.divider}`,
             }}
           >
-            {_homePlans.map(
+            {weddingPackages.map(
               (tab) =>
                 tab.license === currentTab && (
                   <PlanCard
@@ -114,12 +132,12 @@ export default function HomePricing() {
           }}
         >
           <m.div variants={varFade().inDown}>
-            <Typography variant="h4">Still have questions?</Typography>
+            <Typography variant="h4">Masih ada pertanyaan?</Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography sx={{ mt: 2, mb: 5, color: 'text.secondary' }}>
-              Please describe your case to receive the most accurate advice.
+              Silakan deskripsikan kebutuhan Anda untuk mendapatkan saran yang lebih akurat.
             </Typography>
           </m.div>
 
@@ -128,9 +146,9 @@ export default function HomePricing() {
               color="inherit"
               size="large"
               variant="contained"
-              href="mailto:support@minimals.cc?subject=[Feedback] from Customer"
+              href="mailto:support@minimals.cc?subject=[Feedback] dari Pelanggan"
             >
-              Contact us
+              Hubungi Kami
             </Button>
           </m.div>
         </Box>
@@ -154,14 +172,12 @@ export default function HomePricing() {
   );
 }
 
-// ----------------------------------------------------------------------
-
 function PlanCard({ plan, sx, ...other }) {
   const { license, commons, options, icons } = plan;
 
   const standard = license === 'Standard';
 
-  const plus = license === 'Standard Plus';
+  const plus = license === 'Premium';
 
   return (
     <Stack
@@ -179,7 +195,7 @@ function PlanCard({ plan, sx, ...other }) {
     >
       <Stack spacing={2}>
         <Typography variant="overline" component="div" sx={{ color: 'text.disabled' }}>
-          License
+          Paket
         </Typography>
 
         <Box sx={{ position: 'relative' }}>
@@ -201,11 +217,15 @@ function PlanCard({ plan, sx, ...other }) {
       </Stack>
 
       {standard ? (
-        <Box component="img" src={icons[1]} sx={{ width: 20, height: 20 }} />
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          {icons.map((icon) => (
+            <Iconify key={icon} icon={icon} width={24} />
+          ))}
+        </Box>
       ) : (
         <Stack direction="row" spacing={2}>
           {icons.map((icon) => (
-            <Box component="img" key={icon} src={icon} sx={{ width: 20, height: 20 }} />
+            <Iconify key={icon} icon={icon} width={24} />
           ))}
         </Stack>
       )}
@@ -245,17 +265,18 @@ function PlanCard({ plan, sx, ...other }) {
       </Stack>
 
       <Stack alignItems="flex-end">
-        <Button
-          color="inherit"
-          size="small"
-          target="_blank"
-          rel="noopener"
-          href={paths.minimalUI}
-          endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
-        >
-          Learn more
-        </Button>
-      </Stack>
+  <Button
+    color="inherit"
+    size="small"
+    target="_blank"
+    rel="noopener"
+    href="/booking"  // Update the link to the booking page
+    endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
+  >
+    Booking
+  </Button>
+</Stack>
+
     </Stack>
   );
 }

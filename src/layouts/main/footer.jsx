@@ -22,7 +22,7 @@ import Iconify from 'src/components/iconify';
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'Wedding',
     children: [
       { name: 'About us', href: paths.about },
       { name: 'Contact us', href: paths.contact },
@@ -38,7 +38,7 @@ const LINKS = [
   },
   {
     headline: 'Contact',
-    children: [{ name: 'support@minimals.cc', href: '#' }],
+    children: [{ name: 'tes@gmail.com', href: '#' }],
   },
 ];
 
@@ -163,11 +163,11 @@ export default function Footer() {
         </Grid>
 
         <Typography variant="body2" sx={{ mt: 10 }}>
-          © 2021. All rights reserved
+          © 2025. Semua hak dilindungi undang-undang
         </Typography>
       </Container>
     </Box>
   );
 
-  return isHome ? simpleFooter : mainFooter;
+  return  mainFooter;
 }
