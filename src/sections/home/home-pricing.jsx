@@ -22,24 +22,22 @@ import { varFade, MotionViewport } from 'src/components/animate';
 // Mock data for wedding packages
 const weddingPackages = [
   {
-    license: 'Standard',
-    commons: ['Paket dekorasi sederhana', 'Paket catering untuk 100 orang'],
-    options: ['Dekorasi bunga', 'Foto dokumentasi', 'Kue pengantin'],
+    license: 'MAKE UP',
+    description: 'Paket Make Up profesional untuk pengantin dengan pilihan gaya dan riasan yang disesuaikan dengan tema pernikahan.',
     icons: ['eva:camera-fill', 'eva:heart-fill', 'eva:shopping-bag-fill'],
   },
   {
-    license: 'Premium',
-    commons: ['Paket dekorasi mewah', 'Paket catering untuk 200 orang'],
-    options: ['Dekorasi bunga', 'Foto dokumentasi profesional', 'Kue pengantin eksklusif'],
+    license: 'MAKE UP & DEKOR',
+    description: 'Paket lengkap Make Up dan Dekorasi untuk pernikahan yang lebih elegan dan mewah, mencakup dekorasi premium dan riasan eksklusif.',
     icons: ['eva:camera-fill', 'eva:star-fill', 'eva:shopping-cart-fill'],
   },
   {
-    license: 'Luxury',
-    commons: ['Paket dekorasi eksklusif', 'Paket catering untuk 300 orang'],
-    options: ['Dekorasi bunga premium', 'Foto dokumentasi HD', 'Kue pengantin super mewah'],
+    license: 'DEKOR',
+    description: 'Paket Dekorasi khusus untuk mempercantik venue pernikahan dengan sentuhan eksklusif dan tema yang bisa disesuaikan.',
     icons: ['eva:camera-fill', 'eva:award-fill', 'eva:gift-fill'],
   },
 ];
+
 
 export default function HomePricing() {
   const mdUp = useResponsive('up', 'md');
@@ -171,9 +169,8 @@ export default function HomePricing() {
     </Box>
   );
 }
-
 function PlanCard({ plan, sx, ...other }) {
-  const { license, commons, options, icons } = plan;
+  const { license, description, icons } = plan;
 
   const standard = license === 'Standard';
 
@@ -216,7 +213,7 @@ function PlanCard({ plan, sx, ...other }) {
         </Box>
       </Stack>
 
-      {standard ? (
+      {/* {standard ? (
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           {icons.map((icon) => (
             <Iconify key={icon} icon={icon} width={24} />
@@ -228,40 +225,25 @@ function PlanCard({ plan, sx, ...other }) {
             <Iconify key={icon} icon={icon} width={24} />
           ))}
         </Stack>
-      )}
+      )} */}
 
       <Stack spacing={2.5}>
-        {commons.map((option) => (
-          <Stack key={option} spacing={1} direction="row" alignItems="center">
-            <Iconify icon="eva:checkmark-fill" width={16} />
-            <Typography variant="body2">{option}</Typography>
-          </Stack>
-        ))}
+    
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        {options.map((option, optionIndex) => {
-          const disabled =
-            (standard && optionIndex === 1) ||
-            (standard && optionIndex === 2) ||
-            (standard && optionIndex === 3) ||
-            (plus && optionIndex === 3);
-
-          return (
+     
             <Stack
               spacing={1}
               direction="row"
               alignItems="center"
-              sx={{
-                ...(disabled && { color: 'text.disabled' }),
-              }}
-              key={option}
+          
             >
-              <Iconify icon={disabled ? 'mingcute:close-line' : 'eva:checkmark-fill'} width={16} />
-              <Typography variant="body2">{option}</Typography>
+             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        {description}
+      </Typography>
             </Stack>
-          );
-        })}
+     
       </Stack>
 
       <Stack alignItems="flex-end">

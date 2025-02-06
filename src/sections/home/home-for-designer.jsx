@@ -1,33 +1,40 @@
 import { m } from 'framer-motion';
-// @mui
 import { useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-// hooks
+import Carousel from 'react-multi-carousel'; // Tambahkan impor ini
+import 'react-multi-carousel/lib/styles.css';
 import { useResponsive } from 'src/hooks/use-responsive';
-// theme
 import { textGradient, bgGradient } from 'src/theme/css';
-// routes
 import { paths } from 'src/routes/paths';
-// components
 import Iconify from 'src/components/iconify';
 import { MotionViewport, varFade } from 'src/components/animate';
 
-// ----------------------------------------------------------------------
+const images = [
+  '/assets/images/home/wedding1.jpeg',
+  '/assets/images/home/wedding2.jpeg',
+  '/assets/images/home/wedding3.jpeg',
+  '/assets/images/home/wedding4.jpeg'
+];
 
-export default function HomeForDesigner() {
+const responsive = {
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+};
+
+export default function HomeGallery() {
   const theme = useTheme();
-
   const upMd = useResponsive('up', 'md');
 
   const renderDescription = (
-    <Box sx={{ textAlign: { xs: 'center', md: 'unset' }, mt: { xs: 10, md: 20 } }}>
+    <Box sx={{ textAlign: { xs: 'center', md: 'left' }, mt: { xs: 5, md: 10 } }}>
       <m.div variants={varFade().inUp}>
         <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-          Professional Kit
+          Photo Gallery
         </Typography>
       </m.div>
 
@@ -42,7 +49,7 @@ export default function HomeForDesigner() {
             ),
           }}
         >
-          For Designer
+          Beautiful Moments
         </Typography>
       </m.div>
 
@@ -54,37 +61,33 @@ export default function HomeForDesigner() {
           endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
           target="_blank"
           rel="noopener"
-          href={paths.figma}
+          href={paths.gallery}
         >
-          Figma Workspace
+          View More
         </Button>
       </m.div>
     </Box>
   );
 
-  const renderImg = (
-    <Box
-      component={m.img}
-      src="/assets/images/home/wedding.jpeg"
-      variants={varFade().in}
-      sx={{
-        height: 1,
-        width: 0.5,
-        objectFit: 'cover',
-        position: 'absolute',
-        boxShadow: `-80px 80px 80px ${
-          theme.palette.mode === 'light'
-            ? alpha(theme.palette.grey[500], 0.48)
-            : alpha(theme.palette.common.black, 0.24)
-        }`,
-      }}
-    />
+  const renderGallery = (
+    <Box sx={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
+      <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000}>
+        {images.map((src, index) => (
+          <Box
+            key={index}
+            component="img"
+            src={src}
+            sx={{ width: '100%', height: 500, objectFit: 'cover' }}
+          />
+        ))}
+      </Carousel>
+    </Box>
   );
 
   return (
     <Box
       sx={{
-        minHeight: 560,
+        minHeight: 600,
         overflow: 'hidden',
         position: 'relative',
         ...bgGradient({
@@ -92,21 +95,14 @@ export default function HomeForDesigner() {
           endColor: alpha(theme.palette.grey[900], 0),
           imgUrl: '/assets/images/home/for_designer.webp',
         }),
-        ...(upMd && {
-          ...bgGradient({
-            color: alpha(theme.palette.background.default, 0.8),
-            imgUrl: '/assets/background/overlay_4.jpg',
-          }),
-        }),
       }}
     >
       <Container component={MotionViewport}>
         <Grid container>
-          <Grid xs={12} md={6}>
+          <Grid xs={12} md={6} sx={{ display: 'flex', alignItems: 'center' }}>
             {renderDescription}
           </Grid>
-
-          {upMd && <Grid md={6}>{renderImg}</Grid>}
+          <Grid xs={12} md={6}>{renderGallery}</Grid>
         </Grid>
       </Container>
     </Box>

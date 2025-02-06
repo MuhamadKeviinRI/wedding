@@ -19,13 +19,13 @@ const CARDS = [
       'Bergabunglah dengan kami untuk konsultasi pribadi mengenai segala hal yang berhubungan dengan pernikahan. Kami akan memberikan solusi terbaik sesuai dengan kebutuhan Anda.',
   },
   {
-    icon: '/assets/icons/home/ic_design.svg',
+    icon: '/assets/images/home/paket.png',
     title: 'Paket Pernikahan',
     description:
       'Paket pernikahan kami dirancang untuk memenuhi segala kebutuhan acara Anda, dari dekorasi hingga kebutuhan acara, dengan berbagai pilihan yang dapat disesuaikan.',
   },
   {
-    icon: '/assets/icons/home/ic_development.svg',
+    icon: '/assets/images/home/booking.png',
     title: 'Booking',
     description:
       'Dengan sistem pemesanan yang mudah, Anda dapat mengatur tanggal dan detail acara pernikahan Anda dengan cepat dan efisien tanpa repot.',
@@ -86,7 +86,7 @@ export default function HomeMinimal() {
                 component="img"
                 src={card.icon}
                 alt={card.title}
-                sx={{ mx: 'auto', width: 48, height: 48 }}
+                sx={{ mx: 'auto', width: 68, height: 48 }}
               />
 
               <Typography variant="h5" sx={{ mt: 8, mb: 2 }}>
